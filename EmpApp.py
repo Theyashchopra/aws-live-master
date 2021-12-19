@@ -85,7 +85,7 @@ def AddEmp():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True) 
 
-@app.route("/getemp",methods=['POST'])
+@app.route("/getemp",methods=['GET'])
 def getemp():
     return render_template('GetEmp.html')
 
