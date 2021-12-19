@@ -26,7 +26,7 @@ def home():
     return render_template('AddEmp.html')
 
 
-@app.route("/about", methods=['POST'])
+@app.route("/about", methods=['POST','GET'])
 def about():
     return render_template('www.intellipaat.com')
 
@@ -85,7 +85,7 @@ def AddEmp():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
 
-@app.route("/getemp",methods=['GET','POST'])
+@app.route("/getemp",methods=['POST'])
 def getemp():
     return render_template('GetEmp.html')
 
