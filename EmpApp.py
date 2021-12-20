@@ -9,26 +9,26 @@ app = Flask(__name__)
 bucket = custombucket
 region = customregion
 
-db_conn = connections.Connection(
-    host=customhost,
-    port=3306,
-    user=customuser,
-    password=custompass,
-    db=customdb
+# db_conn = connections.Connection(
+#     host=customhost,
+#     port=3306,
+#     user=customuser,
+#     password=custompass,
+#     db=customdb
 
-)
+# )
 output = {}
 table = 'employee'
 
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('AddEmp.html')
+    return render_template('Home.html')
 
 
-@app.route("/about", methods=['POST','GET'])
+@app.route("/addemp1", methods=['POST','GET'])
 def about():
-    return render_template('www.intellipaat.com')
+    return render_template('AddEmp.html')
 
 
 @app.route("/addemp", methods=['POST'])
@@ -81,13 +81,14 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
+@app.route("/getemp1",methods=['GET','POST'])
+def getemp():
+    return render_template('GetEmp.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True) 
 
-@app.route("/getemp",methods=['GET'])
-def getemp():
-    return render_template('GetEmp.html')
+
 
 # @app.route("/about",methods=['GET','POST'])
 # def about():
